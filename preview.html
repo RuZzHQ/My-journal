@@ -1,0 +1,66 @@
+<!-- preview.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Entry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #preview {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .redirect-btn {
+            cursor: pointer;
+            color: blue;
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Preview Entry</h1>
+
+    <div id="preview">
+        <!-- Entry text will be displayed here -->
+    </div>
+
+    <button class="redirect-btn" onclick="redirectToExistingEntries()">Existing Entries</button>
+    <button class="redirect-btn" onclick="redirectToMainJournal()">Main Journal Page</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const entryText = urlParams.get('text');
+
+            const previewContainer = document.getElementById('preview');
+            previewContainer.textContent = entryText;
+        });
+
+        function redirectToExistingEntries() {
+            // Redirect to the existing_entries.html page
+            window.location.href = 'existing_entries.html';
+        }
+
+        function redirectToMainJournal() {
+            // Redirect to the index.html (main journal page)
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+</html>
